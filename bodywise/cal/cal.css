@@ -1,0 +1,156 @@
+      /* En-tête */
+/* Logo */
+.name {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+/* Centrer le logo verticalement dans l'en-tête */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+    
+  position: fixed; /* Ajouté pour fixer la barre de navigation */
+  top: 0; /* Ajouté pour positionner en haut de la page */
+  width: 100%; /* Ajouté pour s'assurer que la barre occupe toute la largeur */
+  z-index: 1000; /* Ajouté pour s'assurer que la barre reste au-dessus du contenu */
+}
+
+.logo img {
+  height: 40px; /* Taille adaptée pour le logo */
+  width: auto; /* Conserve les proportions de l'image */
+  display: block;
+}
+ 
+        
+        
+
+/* Réinitialisation des marges et des bordures */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Mise en place du fond général */
+  body {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Dégradé rose-orange */
+    font-family: Arial, sans-serif;
+    color: #fff;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    margin-top: 140px;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    background: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Animation de l'apparition du conteneur */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Style du titre */
+  h1 {
+    font-size: 36px;
+    color: #ffcc00;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  h1:hover {
+    color: #fff;
+  }
+  
+  /* Mise en forme du formulaire */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style des labels */
+  label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: #ffcc00;
+    font-weight: bold;
+  }
+  
+  /* Style des champs de saisie */
+  input, select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input:focus, select:focus {
+    border-color: #feb47b;
+  }
+  
+  /* Style du bouton de soumission */
+  button {
+    background-color: #ffcc00;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #feb47b;
+  }
+  
+  /* Style du texte de résultat */
+  #result {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Animation du texte de résultat */
+  #result {
+    opacity: 0;
+  }
+  
+  #result.show {
+    opacity: 1;
+  }
+  

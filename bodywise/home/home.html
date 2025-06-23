@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="icon" href="wellness.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BodyWise</title>
+    <link rel="stylesheet" href="gest.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <a style="text-decoration: none;" href="#"> <div class="logo name">
+          <p style="color: #0b789b;"><bold>BodyWise</bold></p>
+            <img src="wellness.png" alt="Logo BodyWise">
+        </div></a>
+        <nav>
+          <ul>
+            <li>
+              <div class="button-container">
+                <a href="#h" class="animated-button">HOME</a>
+              </div>
+            </li>
+            <li>
+              <div class="button-container">
+                <a href="#s" class="animated-button">SERVICES</a>
+              </div>
+            </li>
+            <li>
+              <div class="button-container">
+                <a href="#i" class="animated-button">INFORMATIONS</a>
+              </div>
+            </li>
+            <li>
+              <div class="button-container">
+                <a href="#c" class="animated-button">CONTACT</a>
+              </div>
+            </li>
+            <li>
+              <div class="button-container">
+                <a href="../login/login.html" class="animated-button">PROFIL</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        
+    </header>
+    
+
+    <main id="h">
+      <div class="hero">
+        <img class="hero-image" src="ff.jpg" alt="Image d'arrière-plan">
+        <div class="overlay"></div>
+        <h1 class="shimmer-text" style="font-size: 60px;">Choose health and muscle</h1>
+        <p class="shimmer-text" style="font-size: 30px;">BodyWise: Your path to a healthier, fitter you!</p>
+        
+      </div>
+      <a id="s"></a>
+      
+    </main>
+    
+    
+      <br><br>  
+    <!--services-->
+    
+    <section id="services" class="testimonials-grid">
+      <h2>Services</h2>
+      <div class="image-grid">
+          <!-- Item 1 -->
+          <div class="grid-item">
+              <a href="../ex/exercices.html" class="grid-button">
+                  <img src="ex.png" alt="Exercise 1">
+                  <div class="grid-content" style="       padding: 180px 18px;">
+                      <h2>Exercises</h2>
+                      <p>Organize your workout program and get advice.</p>
+                  </div>
+              </a>
+          </div>
+          <!-- Item 2 -->
+          <div class="grid-item">
+              <a href="../cal/cal.html" class="grid-button">
+                  <img src="col.png" alt="Calories Calculator">
+                  <div class="grid-content">
+                      <h2 style="    font-size: 32px;">CALORIES CALCULATOR</h2>
+                      <p>Calculate the calories needed to maintain, lose, or gain weight.</p>
+                  </div>
+              </a>
+          </div>
+          <!-- Item 3 -->
+          <div class="grid-item">
+              <a href="../fo/fo.html" class="grid-button">
+                  <img src="fo.png" alt="Protein Calculator">
+                  <div class="grid-content">
+                      <h2 style="    font-size: 32px;"> FOOD CALCULATOR</h2>
+                      <p>Estimate your daily food requirements for a healthy life.</p>
+                  </div>
+              </a>
+          </div>
+          <!-- Item 4 -->
+          <div class="grid-item">
+              <a href="../bmi/bmi.html" class="grid-button">
+                  <img src="bmi.png" alt="Exercise 4">
+                  <div class="grid-content" style="padding: 180px 16px">
+                      <h2 >BMI</h2>
+                      <p>Estimate body size and get a perfect body</p>
+                  </div>
+              </a>
+          </div>
+      </div>
+      <a id="i"></a>
+  </section>
+  
+      <script src="gest.js"></script>
+    </main>
+   
+
+        <!-- Section "Informations" -->
+        
+        <section  class="testimonials-grid" style="padding-bottom: 30px;">
+            <h2>Informations</h2>
+            <div class="info-container">
+                <div class="testimonial">
+                    <h3>1. Our Approach</h3>
+                    <p>Get personalized workout plans focused on muscle-building, strength, and flexibility, with real-time feedback on form and technique.</p>
+                </div>
+                <div class="testimonial">
+                    <h3>2. Your Personal Coach</h3>
+                    <p>Track your daily nutrition and explore meal plans aligned with your fitness goals, from muscle growth to balanced overall health.</p>
+                </div>
+                <div class="testimonial">
+                    <h3>3. Healthy Eating Made Easy</h3>
+                    <p>Track your daily nutrition and explore meal plans aligned with your fitness goals, from muscle growth to balanced overall health.</p>
+                </div>
+            </div>
+            <a id="c"></a>
+        </section>
+    </main>
+
+
+
+
+    <!--contact-->
+
+    <section id="contact-form" class="testimonials-grid">
+      <h2>Contact</h2>
+      <div style="margin-left: -60px;">
+        <label for="first-name">First name :</label>
+        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+        
+        <label for="last-name">Last name :</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+        
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+        <label for="number">Number :</label>
+        <input type="tel" id="number" name="number" placeholder="Enter your number" required>
+        
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+        
+        <button type="button" id="submit-button" style="width: 197px;
+        padding: 11px; background-color: #0b789b;
+        color: #fff; padding: 15px 25px;
+        border: none; border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease-in-out;">Envoyer</button>
+      </div>
+    </section>
+    
+    <script>
+      // Gestionnaire d'événement pour le bouton Envoyer
+      document.getElementById('submit-button').addEventListener('click', function() {
+        // Récupérer les valeurs des champs
+        const firstName = document.getElementById('first-name').value.trim();
+        const lastName = document.getElementById('last-name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const number = document.getElementById('number').value.trim();
+        const message = document.getElementById('message').value.trim();
+    
+        // Vérifier si un champ est vide
+        if (!firstName || !lastName || !email || !number || !message) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Empty fields',
+            text: 'Please fill in all fields before submitting.',
+            confirmButtonColor: '#e74c3c'
+          });
+        } else {
+          Swal.fire({
+            icon: 'success',
+            title: 'Form sent',
+            text: 'Your submission has been successfully registered!',
+            confirmButtonColor: '#0b789b'
+          });
+        }
+      });
+    </script>
+    
+    
+     
+<footer>
+  <div class="footer-content">
+    <p class="footer-message" style="margin-left: 127px;">© 2024 BodyWise. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"/>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+        <img src="i.jpeg" alt="Instagram"/>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="social-icon twitter">
+        <img src="tw.png" alt="Twitter"/>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin">
+        <img src="in.jpeg" alt="LinkedIn"/>
+      </a>
+      <a href="https://www.google.com" target="_blank" class="social-icon google">
+        <img src="g.png" alt="Google"/>
+      </a>
+    </div>
+    <p class="footer-message">Thank you for visiting our site! If you have any questions, please contact us.</p>
+  </div>
+</footer>
+
+
+      
+
+    <script src="gest.js"></script>
+</body>
+</html>

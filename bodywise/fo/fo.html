@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="wellness.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Search and Calorie Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        /* Reset margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General background and centering */
+        body {
+            background: linear-gradient(135deg, #0b789b, #ffffff); /* Gradient blue to white */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            flex-direction: column;
+            margin-top: 85px;
+        }
+
+        /* Main container styling */
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #0b789b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        h2:hover {
+            color: #ffffff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 2px solid #0b789b;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #ffffff;
+        }
+
+        button {
+            background-color: #0b789b;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+            color: #0b789b;
+        }
+
+        a.button {
+            background-color: #0b789b;
+            color: #fff;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        a.button:hover {
+            background-color: #ffffff;
+            color: #0b789b;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #0b789b;
+            text-align: center;
+            color: #fff;
+        }
+
+        th {
+            background-color: #0b789b;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        h3 {
+            margin-top: 30px;
+            font-size: 28px;
+            color: #0b789b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* En-tête */
+/* Logo */
+.name {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+/* Centrer le logo verticalement dans l'en-tête */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+    
+  position: fixed; /* Ajouté pour fixer la barre de navigation */
+  top: 0; /* Ajouté pour positionner en haut de la page */
+  width: 100%; /* Ajouté pour s'assurer que la barre occupe toute la largeur */
+  z-index: 1000; /* Ajouté pour s'assurer que la barre reste au-dessus du contenu */
+}
+
+.logo img {
+  height: 40px; /* Taille adaptée pour le logo */
+  width: auto; /* Conserve les proportions de l'image */
+  display: block;
+}
+  
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <a style="text-decoration: none;" href="#"> <div class="logo name">
+          <p style="color: #ffffff;"><bold>BodyWise</bold></p>
+            <img src="wellness.png" alt="Logo BodyWise">
+        </div></a></header>
+    <div class="container">
+        <h2>Search for Food</h2>
+        <form id="foodForm">
+            <input type="text" id="foodName" name="food_name" placeholder="Enter food name" required>
+            <input type="number" id="foodAmount" name="food_amount" placeholder="Enter amount in grams" required>
+            <button type="submit">Add Food</button>
+        </form>
+
+        <!-- Button to Return to Home -->
+        <a href="../home/home.html" class="button">Return to Home</a>
+
+        <h3>Food Intake</h3>
+        <table id="foodTable">
+            <thead>
+                <tr>
+                    <th>Food</th>
+                    <th>Amount (g)</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Fat</th>
+                    <th>Carbs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Food intake entries will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById("foodForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const foodName = document.getElementById("foodName").value;
+            const foodAmount = document.getElementById("foodAmount").value;
+            const idClient = 1; // Replace with the real client ID (e.g., from session)
+
+            // AJAX request
+            fetch("fo.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: `food_name=${foodName}&food_amount=${foodAmount}&id_client1=${idClient}`
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === "success") {
+                    // Update the table immediately
+                    const tableBody = document.getElementById("foodTable").getElementsByTagName("tbody")[0];
+                    const newRow = tableBody.insertRow();
+
+                    newRow.innerHTML = `
+                        <td>${data.food_name}</td>
+                        <td>${data.amount}</td>
+                        <td>${data.calories} kcal</td>
+                        <td>${data.protein} g</td>
+                        <td>${data.fat} g</td>
+                        <td>${data.carbs} g</td>
+                    `;
+
+                    // Clear form fields
+                    document.getElementById("foodName").value = "";
+                    document.getElementById("foodAmount").value = "";
+
+                    // Show success alert
+                    Swal.fire({
+                        title: 'Food Added Successfully',
+                        text: `You added ${data.food_name} (${data.amount}g).`,
+                        icon: 'success',
+                        confirmButtonColor: '#0b789b'
+                    });
+                } else if (data.status === "not_found") {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Food not found in the database.',
+                        icon: 'error',
+                        confirmButtonColor: '#0b789b'
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Could not save food information. Please try again.',
+                        icon: 'error',
+                        confirmButtonColor: '#0b789b'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'An error occurred. Please try again.',
+                    icon: 'error',
+                    confirmButtonColor: '#0b789b'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

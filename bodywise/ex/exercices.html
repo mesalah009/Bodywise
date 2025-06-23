@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="icon" href="wellness.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BodyWise</title>
+    <style>
+        /* Réinitialisation des marges et des bordures */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        /* Mise en place du fond général et centrage */
+        body {
+          
+          background: linear-gradient(135deg, #0b789b, #ffffff); /* Dégradé bleu vers blanc */
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #333; /* Texte de couleur noire pour le contraste */
+          line-height: 1.6;
+          display: flex;
+          justify-content: center; /* Centre horizontalement */
+          align-items: center; /* Centre verticalement */
+          height: 100vh;
+          padding: 20px;
+          flex-direction: column;
+          margin-top: 517px;
+        }
+        
+        /* Conteneur principal centré */
+        .container {
+          background: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+          border-radius: 15px;
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+          padding: 40px;
+          width: 100%;
+          max-width: 900px;
+          text-align: center;
+          animation: fadeIn 1s ease-in-out;
+          margin-bottom: 300px;
+          margin-bottom: 600px;
+        }
+        
+        /* Animation d'apparition du conteneur */
+        @keyframes fadeIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        
+        /* Style du titre principal */
+        h1 {
+          font-size: 36px;
+          color: #0b789b; /* Titre en bleu */
+          margin-bottom: 20px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          transition: color 0.3s ease-in-out;
+        }
+        
+        h1:hover {
+          color: #ffffff; /* Change le titre en blanc au survol */
+        }
+        
+        /* Mise en forme du formulaire */
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        
+        /* Style des champs de saisie */
+        input {
+          width: 100%;
+          padding: 12px 15px;
+          margin: 10px 0;
+          border: 2px solid #0b789b; /* Bordures bleues */
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent blanc */
+          color: #fff;
+          font-size: 16px;
+          outline: none;
+          transition: border-color 0.3s ease-in-out;
+        }
+        
+        input:focus {
+          border-color: #ffffff; /* Bordure blanche lors du focus */
+        }
+        
+        /* Style du bouton "Ajouter Exercice" */
+        .add-exercise, .save-routine, .go-home {
+          background-color: #0b789b; /* Bleu pour les boutons */
+          color: #fff;
+          padding: 15px 25px;
+          border: none;
+          border-radius: 10px;
+          font-size: 18px;
+          cursor: pointer;
+          width: 100%;
+          margin-top: 20px;
+          transition: background-color 0.3s ease-in-out;
+        }
+        
+        .add-exercise:hover, .save-routine:hover, .go-home:hover {
+          background-color: #ffffff; /* Change to white on hover */
+          color: #0b789b; /* Bleu texte sur fond blanc */
+        }
+        
+        /* Style du tableau des exercices */
+        table {
+          width: 100%;
+          margin-top: 30px;
+          border-collapse: collapse;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+        
+        th, td {
+          padding: 12px;
+          border: 1px solid #0b789b;
+          text-align: center;
+          color: #fff;
+        }
+        
+        th {
+          background-color: #0b789b;
+          font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        tr:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Style pour le texte de résultat */
+        h3 {
+          margin-top: 30px;
+          font-size: 28px;
+          color: #0b789b;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+          /* En-tête */
+/* Logo */
+.name {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+/* Centrer le logo verticalement dans l'en-tête */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+    
+  position: fixed; /* Ajouté pour fixer la barre de navigation */
+  top: 0; /* Ajouté pour positionner en haut de la page */
+  width: 100%; /* Ajouté pour s'assurer que la barre occupe toute la largeur */
+  z-index: 1000; /* Ajouté pour s'assurer que la barre reste au-dessus du contenu */
+}
+
+.logo img {
+  height: 40px; /* Taille adaptée pour le logo */
+  width: auto; /* Conserve les proportions de l'image */
+  display: block;
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
+    </script>
+</head>
+<body>
+  <header>
+    <a style="text-decoration: none;" href="#"> <div class="logo name">
+      <p style="color: #ffffff;"><bold>BodyWise</bold></p>
+        <img src="wellness.png" alt="Logo BodyWise">
+    </div></a></header>
+    <div class="container">
+        <h1>Programme d'Entraînement</h1>
+        <form id="routineForm">
+            <label for="routineName" style="    font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }">Routine name:</label>
+            <input type="text" id="routineName" name="routineName" required><br><br>
+
+            <label for="routineDate" style="    font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+        }" >Routine date :</label>
+            <input type="date" id="routineDate" name="routineDate" required><br><br>
+
+            <h3>Exercices</h3>
+            <table id="exerciseTable">
+                <thead>
+                    <tr>
+                        <th>Exercice name</th>
+                        <th>Series</th>
+                        <th>repetitions</th>
+                        <th>Weight (kg)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les exercices ajoutés seront affichés ici -->
+                </tbody>
+            </table>
+            <button type="button" class="add-exercise" onclick="addExerciseRow()">Add Exercise</button><br><br>
+
+            <button type="button" class="save-routine" onclick="saveRoutine()">Save Routine</button>
+        </form>
+        <button type="button" class="go-home" onclick="goHome()">Back to home</button>
+    </div>
+    <script defer>
+      function addExerciseRow() {
+    const tableBody = document.querySelector("#exerciseTable tbody");
+
+    // Créer une nouvelle ligne pour l'exercice
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td><input type="text" class="exercise-name" placeholder="Nom de l'exercice" required></td>
+        <td><input type="number" class="exercise-series" placeholder="Séries" min="1" required></td>
+        <td><input type="number" class="exercise-repetitions" placeholder="Répétitions" min="1" required></td>
+        <td><input type="number" class="exercise-weight" placeholder="Poids (kg)" min="0" step="0.1" required></td>
+        <td><button type="button" onclick="removeExerciseRow(this)" style="background-color: #0b789b;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    border: 1px solid #0b789b;
+    font-size: 15px;">Delate</button></td>
+    `;
+
+    tableBody.appendChild(row);
+}
+
+function removeExerciseRow(button) {
+    const row = button.closest("tr");
+    row.remove();
+}
+
+async function saveRoutine() {
+    const routineName = document.getElementById("routineName").value;
+    const routineDate = document.getElementById("routineDate").value;
+
+    const exercises = Array.from(document.querySelectorAll("#exerciseTable tbody tr")).map(row => {
+        const name = row.querySelector(".exercise-name").value;
+        const series = parseInt(row.querySelector(".exercise-series").value);
+        const repetitions = parseInt(row.querySelector(".exercise-repetitions").value);
+        const weight = parseFloat(row.querySelector(".exercise-weight").value);
+
+        return { name, series, repetitions, weight };
+    });
+
+    if (!routineName || !routineDate || exercises.length === 0) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Please fill in all fields and add at least one exercise.',
+            icon: 'error',
+            showConfirmButton: true
+        });
+        return;
+    }
+
+    const payload = {
+        routineName,
+        routineDate,
+        exercises
+    };
+
+    try {
+        const response = await fetch("insert_data.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            Swal.fire({
+                title: 'Erreur',
+                text: 'Erreur de communication avec le serveur.',
+                icon: 'error',
+                showConfirmButton: true
+            });
+            return;
+        }
+
+        const result = await response.json();
+        if (result.success) {
+            Swal.fire({
+                title: 'Succes',
+                text: 'routine recorded successfully !',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        } else {
+            Swal.fire({
+                title: 'Error',
+                text: result.message,
+                icon: 'error',
+                showConfirmButton: true
+            });
+        }
+    } catch (error) {
+        console.error("Erreur lors de l'enregistrement :", error);
+        Swal.fire({
+            title: 'Error',
+            text: 'An error has occurred. Please check your server.',
+            icon: 'error',
+            showConfirmButton: true
+        });
+    }
+}
+
+function goHome() {
+    window.location.href = '../home/home.html'; // Remplacez par la page d'accueil souhaitée
+}
+
+    </script>
+</body>
+</html>

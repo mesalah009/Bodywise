@@ -1,0 +1,184 @@
+        
+       /* En-tête */
+/* Logo */
+.name {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+/* Centrer le logo verticalement dans l'en-tête */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+    
+  position: fixed; /* Ajouté pour fixer la barre de navigation */
+  top: 0; /* Ajouté pour positionner en haut de la page */
+  width: 100%; /* Ajouté pour s'assurer que la barre occupe toute la largeur */
+  z-index: 1000; /* Ajouté pour s'assurer que la barre reste au-dessus du contenu */
+}
+
+.logo img {
+  height: 40px; /* Taille adaptée pour le logo */
+  width: auto; /* Conserve les proportions de l'image */
+  display: block;
+}
+ 
+        
+        
+        /* Réinitialisation des marges et bordures */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          /* Corps de la page */
+          body {
+            background: linear-gradient(135deg, #0b789b, #ffffff); /* Dégradé bleu vers blanc */
+            font-family: Arial, sans-serif;
+            color: #333; /* Texte noir */
+            display: flex;
+            justify-content: center; /* Centrage horizontal */
+            align-items: center; /* Centrage vertical */
+            min-height: 100vh;
+            padding: 20px;
+          }
+          
+          /* Section principale */
+          .container {
+            background: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            color: #fff; /* Texte en blanc */
+            animation: fadeIn 1s ease-in-out;
+          }
+          
+          /* Animation d'apparition */
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+          
+          /* Titre principal */
+          h1 {
+            font-size: 36px;
+            color: #0b789b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+          }
+          
+          /* Sous-titres */
+          h3 {
+            font-size: 24px;
+            color: #0b789b;
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+          }
+          
+          /* Section des entrées */
+          .input-section {
+            margin-bottom: 30px;
+            text-align: left;
+          }
+          
+          .input-section label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+            color: #0b789b;
+          }
+          
+          .input-section input,
+          .input-section select {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 2px solid #0b789b;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+          }
+          
+          .input-section input:focus,
+          .input-section select:focus {
+            border-color: #ffffff;
+          }
+          
+          /* Boutons */
+          button {
+            background-color: #0b789b;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+          
+          button:hover {
+            background-color: #ffffff;
+            color: #0b789b;
+          }
+          
+          /* Section des résultats */
+          .result-section {
+            margin: 20px 0;
+          }
+          
+          .result-section span {
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff;
+          }
+          
+          .result-section p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #0b789b;
+          }
+          
+          /* Section des enregistrements */
+          .record-section {
+            margin-top: 30px;
+          }
+          
+          .record-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          .record-section ul li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #fff;
+            border: 1px solid #0b789b;
+            transition: background-color 0.3s ease;
+          }
+          
+          .record-section ul li:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+          
