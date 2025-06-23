@@ -1,1 +1,1 @@
-# Bodywise
+BodyWise is a dynamic website developed using HTML5, CSS3, and JavaScript, designed to help users track their workouts, monitor exercise routines, and calculate key health metrics such as calories burned, BMI, and daily protein intake.
